@@ -1,0 +1,33 @@
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+}
+
+#wrapper{
+    width: 40vw;
+    height: 40vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5vh;
+    margin-top: 5vh;
+    border: 1px black solid;
+}
+
+#signup{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#signin{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+span{
+    border-left: 1px solid black;
+    height: 80%;
+}
