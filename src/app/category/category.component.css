@@ -1,0 +1,32 @@
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+    flex-direction: column;
+}
+
+#wrapper{
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+    padding: 5vh;
+    margin-top: 5vh;
+}
+
+.category{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border: 1px black solid;
+    margin-bottom: 1vh;
+    padding: 1vh;
+}
+
+.header{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+}

@@ -1,0 +1,22 @@
+<main>
+    <div id="wrapper">
+        <div *ngFor="let category of categories; let i=index"> 
+            <div class="category" *ngIf="!category.show">
+                <div class="header">
+                    <p>{{category.name}}</p>
+                    <img (click)="toggleShow($event, category)" src="https://img.icons8.com/external-tanah-basah-basic-outline-tanah-basah/24/000000/external-chevron-arrows-tanah-basah-basic-outline-tanah-basah-4.png"/>
+                </div>
+            </div>
+            <div class="category" *ngIf="category.show">
+                <div class="header">
+                    <p>{{category.name}}</p>
+                    <img (click)="toggleShow($event, category)" src="https://img.icons8.com/external-tanah-basah-basic-outline-tanah-basah/24/000000/external-chevron-arrows-tanah-basah-basic-outline-tanah-basah-4.png" style="transform: rotate(180deg);"/>
+                </div>
+                <div>
+                    <p>{{items}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a target="_blank" href="https://icons8.com/icon/R52ioYgkCvz6/chevron">chevron icon by Icons8</a>
+</main>
