@@ -42,4 +42,4 @@ testem.log
 Thumbs.db
 
 #config files with secrets
-firebase.config.js
+firestoreConfig.ts

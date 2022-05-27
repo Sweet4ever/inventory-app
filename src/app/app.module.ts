@@ -7,16 +7,26 @@ import { CategoryComponent } from './category/category.component';
 import { LoginComponent } from './login/login.component';
 import { ItemComponent } from './item/item.component';
 
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { environment } from '../environments/environment';
+import { UsersComponent } from './users/users.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     CategoryComponent,
     LoginComponent,
-    ItemComponent
+    ItemComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firestoreConfig),
+    AngularFireAuthModule,
+    AngularFirestoreModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

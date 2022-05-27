@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ItemdataService } from '../itemdata.service';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 @Component({
   selector: 'app-category',
@@ -7,23 +7,39 @@ import { ItemdataService } from '../itemdata.service';
   styleUrls: ['./category.component.css']
 })
 export class CategoryComponent {
-
-  public categories;
-  public items = this.itemData;
   
-  constructor(private itemData: ItemdataService) { 
-    this.categories = [{name: "Mat", userID: "123", id: "123", show: false}, {name: "Kläder", userID: "123", id: "1234", show: false}]
-  }
+  constructor(private angularFirestore: AngularFirestore) {}
 
-  get getItemData(): any{
-    return this.itemData;
-  }
+  public users:any;
+  public items:any;
+  public categories:any;
 
   public toggleShow(event:Event, item:any){
     item.show = !item.show;
   }
 
+  getUsersList() {
+    return this.angularFirestore.collection('users')
+                                .valueChanges()
+                                .subscribe((usersData: any[]) => {this.users = usersData});
+  }
+  
+  getItemList() {
+    return this.angularFirestore.collection('items')
+                                .valueChanges()
+                                .subscribe((itemsData: any[]) => {this.items = itemsData});
+  }
+
+  getCategoryList() {
+    return this.angularFirestore.collection('categories')
+                                .valueChanges()
+                                .subscribe((categoriesData: any[]) => {this.categories = categoriesData});
+  }
+
   ngOnInit(): void {
+    this.users = this.getUsersList();
+    this.items = this.getItemList();
+    this.categories = this.getCategoryList();
   }
 
 }

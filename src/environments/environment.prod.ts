@@ -1,3 +1,5 @@
+import {firestoreConfig} from './firestoreConfig'
 export const environment = {
-  production: true
+  production: true,
+  firestoreConfig,
 };

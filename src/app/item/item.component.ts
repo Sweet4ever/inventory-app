@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { ItemdataService } from '../itemdata.service';
 
 @Component({
   selector: 'app-item',
@@ -8,14 +7,6 @@ import { ItemdataService } from '../itemdata.service';
 })
 export class ItemComponent {
 
-  get getItemData():any{
-    return this.itemData;
-  }
-  constructor(private itemData: ItemdataService) { 
-   
-  }
-
-  ngOnInit(): void {
-  }
+  constructor() {}
 
 }
