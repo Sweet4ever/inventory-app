@@ -1,1 +1,3 @@
-<p>item works!</p>
+<div *ngIf="trim(item.category) == trim(category.id)">
+    <p>Name: {{item.name}}, {{item.amount}} {{item.unit}}</p>
+</div>

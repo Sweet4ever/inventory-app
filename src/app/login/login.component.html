@@ -2,18 +2,18 @@
     <div id="wrapper">
         <div>
             <form id="signup">
-                Email: <input type="text" ng-model="email">
-                Password: <input type="password" ng-model="password">
-                Cofirm Password: <input type="password" ng-model="confirmedpassword">
-                <input type="submit" value="Sign up" style="background-color: lightgreen;">
+                Email: <input type="text" id="signupemail">
+                Password: <input type="password" id="signuppassword">
+                Cofirm Password: <input type="password" id="confirmedpassword">
+                <input type="button" value="Sign up" style="background-color: lightgreen;" (click)="signup()">
             </form>
         </div>
         <span></span>
         <div>
             <form id="signin">
-                Email: <input type="text" ng-model="email">
-                Password: <input type="text" ng-model="password">
-                <input type="submit" value="Sign in" style="background-color: lightgreen;">
+                Email: <input type="text" id="signinemail">
+                Password: <input type="text" id="signinpassword">
+                <input type="button" value="Sign in" style="background-color: lightgreen;" (click)="signin()">
             </form>
         </div>
     </div>

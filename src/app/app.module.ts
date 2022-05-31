@@ -19,7 +19,7 @@ import { UsersComponent } from './users/users.component';
     CategoryComponent,
     LoginComponent,
     ItemComponent,
-    UsersComponent
+    UsersComponent,
   ],
   imports: [
     BrowserModule,

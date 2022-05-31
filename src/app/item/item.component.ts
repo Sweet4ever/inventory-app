@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-item',
@@ -7,6 +7,12 @@ import { Component } from '@angular/core';
 })
 export class ItemComponent {
 
+  @Input() item:any;
+  @Input() category:any;
+
   constructor() {}
 
+  trim(input:string){
+    return input.trim();
+  }
 }

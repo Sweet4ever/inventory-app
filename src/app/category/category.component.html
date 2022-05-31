@@ -12,8 +12,8 @@
                     <p>{{category.name}}</p>
                     <img (click)="toggleShow($event, category)" src="https://img.icons8.com/external-tanah-basah-basic-outline-tanah-basah/24/000000/external-chevron-arrows-tanah-basah-basic-outline-tanah-basah-4.png" style="transform: rotate(180deg);"/>
                 </div>
-                <div>
-                    <p>tjo</p>
+                <div *ngFor="let item of items">
+                    <app-item [item]="item" [category]="category"></app-item>
                 </div>
             </div>
         </div>
