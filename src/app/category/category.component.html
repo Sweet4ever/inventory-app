@@ -1,6 +1,6 @@
 <main>
     <div id="wrapper">
-        <div *ngFor="let category of categories; let i=index"> 
+        <div *ngFor="let category of showList; let i=index"> 
             <div class="category" *ngIf="!category.show">
                 <div class="header">
                     <p>{{category.name}}</p>
