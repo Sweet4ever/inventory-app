@@ -45,6 +45,7 @@ export class CategoryComponent {
   }
 
   sortCategories(userId: string){
+    this.showList = [];
     this.categories.forEach((element:any) => {
       if(element.user_id.trim() == userId.trim() && this.showList.length < this.categories.length){
         this.showList.push(element) 
@@ -69,9 +70,14 @@ export class CategoryComponent {
     this.newForm = false;
   }
 
-  async ngOnInit(): Promise<void> {
+  deleteCategory(category:any){
+    this.angularFirestore.collection("categories").doc(category.id).delete();
+    alert("category deleted")
+    this.getCategoryList();
+  }
 
-    if(this.currentUser.id == null){
+  async ngOnInit(): Promise<void> {
+    if(this.currentUser.id == ""){
       this.router.navigate(['/login'])
     }
     this.getUsersList();
