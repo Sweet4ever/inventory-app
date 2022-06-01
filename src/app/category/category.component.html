@@ -1,5 +1,12 @@
 <main>
     <div id="wrapper">
+        <button id="newCategory" (click)="showForm()">New Category</button>
+        <div *ngIf="newForm">
+            <form>
+                <input type="text" id="newName">
+                <input type="button" value="Add category" (click)="addCategory()">
+            </form>
+        </div>
         <div *ngFor="let category of showList; let i=index"> 
             <div class="category" *ngIf="!category.show">
                 <div class="header">

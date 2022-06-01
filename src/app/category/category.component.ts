@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { CurrentUserService } from '../current-user.service'
+import { CurrentUserService } from '../current-user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-category',
@@ -9,13 +10,17 @@ import { CurrentUserService } from '../current-user.service'
 })
 export class CategoryComponent {
   
-  constructor(private angularFirestore: AngularFirestore, private currentUser: CurrentUserService) {this.showList = []}
+  constructor(private angularFirestore: AngularFirestore, private currentUser: CurrentUserService, private router: Router) {
+    this.newForm = false;
+    this.showList = [];
+  }
 
   public users:any;
   public items:any;
   public categories:any;
   public current:any;
   public showList: any;
+  public newForm:boolean;
 
   public toggleShow(event:Event, item:any){
     item.show = !item.show;
@@ -47,7 +52,28 @@ export class CategoryComponent {
     });
   }
 
+  showForm(){
+    this.newForm = true;
+  }
+
+  addCategory(){
+    let name = <HTMLInputElement>document.querySelector("#newName");
+    if(name.value == null) {
+      alert("Add a name")
+      return
+    }
+    this.angularFirestore.collection("categories").add({
+      'name': name.value,
+      'user_id': this.currentUser.id,
+    });
+    this.newForm = false;
+  }
+
   async ngOnInit(): Promise<void> {
+
+    if(this.currentUser.id == null){
+      this.router.navigate(['/login'])
+    }
     this.getUsersList();
     this.getItemList();
     this.getCategoryList();

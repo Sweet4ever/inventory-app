@@ -30,3 +30,7 @@ main{
     align-items: center;
     flex-direction: row;
 }
+
+#newCategory{
+    max-width: 10vw;
+}
