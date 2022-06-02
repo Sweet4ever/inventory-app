@@ -3,7 +3,8 @@
     <h1 id="title">
      <a href="/">Inventory app</a> 
     </h1>
-    <a href="/login">Sign up/Sign in</a>
+    <p *ngIf="currentUser">{{currentUser.email}}</p>
+    <a *ngIf="!currentUser" href="/login">Sign up/Sign in</a>
   </nav>
   <div id="main">
   </div>
