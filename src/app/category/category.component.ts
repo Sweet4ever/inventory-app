@@ -12,6 +12,7 @@ export class CategoryComponent {
   
   constructor(private angularFirestore: AngularFirestore, private currentUser: CurrentUserService, private router: Router) {
     this.newForm = false;
+    this.showItemForm = false;
     this.showList = [];
   }
 
@@ -19,8 +20,10 @@ export class CategoryComponent {
   public items:any;
   public categories:any;
   public current:any;
-  public showList: any;
+  public showList:any;
   public newForm:boolean;
+  public showItemForm:boolean;
+  public chosenCategory:any;
 
   public toggleShow(event:Event, item:any){
     item.show = !item.show;
@@ -55,6 +58,28 @@ export class CategoryComponent {
 
   showForm(){
     this.newForm = true;
+  }
+
+  showNewItem(category:any){
+    this.showItemForm = true;
+    this.chosenCategory = category;
+  }
+
+  addItem(){
+    let name = <HTMLInputElement>document.querySelector("#itemName");
+    let amount = <HTMLInputElement>document.querySelector("#itemAmount");
+    let unit = <HTMLInputElement>document.querySelector("#itemUnit");
+    if(name.value == null) {
+      alert("Add a name")
+      return
+    }
+    this.angularFirestore.collection("items").add({
+      'name': name.value,
+      'amount': amount.value,
+      'unit': unit.value,
+      'category': this.chosenCategory.id
+    });
+    this.showItemForm = false;
   }
 
   addCategory(){

@@ -3,8 +3,16 @@
         <button id="newCategory" (click)="showForm()">New Category</button>
         <div *ngIf="newForm">
             <form>
-                <input type="text" id="newName">
+                Name:<input type="text" id="newName">
                 <input type="button" value="Add category" (click)="addCategory()">
+            </form>
+        </div>
+        <div *ngIf="showItemForm">
+            <form>
+                Name:<input type="text" id="itemName">
+                Amount:<input type="text" id="itemAmount">
+                Unit:<input type="text" id="itemUnit">
+                <input type="button" value="Add item" (click)="addItem()">
             </form>
         </div>
         <div *ngFor="let category of showList; let i=index"> 
@@ -12,6 +20,7 @@
                 <div class="header">
                     <p>{{category.name}}</p>
                     <div>
+                        <img (click)="showNewItem(category)" src="https://img.icons8.com/external-simple-solid-edt.graphics/24/000000/external-Plus-add-and-remove-simple-solid-edt.graphics.png"/>
                         <img (click)="deleteCategory(category)" src="https://img.icons8.com/external-others-iconmarket/24/000000/external-delete-essential-others-iconmarket-4.png"/>
                         <img (click)="toggleShow($event, category)" src="https://img.icons8.com/external-tanah-basah-basic-outline-tanah-basah/24/000000/external-chevron-arrows-tanah-basah-basic-outline-tanah-basah-4.png"/>
                     </div>
@@ -21,6 +30,7 @@
                 <div class="header">
                     <p>{{category.name}}</p>
                     <div>
+                        <img (click)="showNewItem(category)" src="https://img.icons8.com/external-simple-solid-edt.graphics/24/000000/external-Plus-add-and-remove-simple-solid-edt.graphics.png"/>
                         <img (click)="deleteCategory(category)" src="https://img.icons8.com/external-others-iconmarket/24/000000/external-delete-essential-others-iconmarket-4.png"/>
                         <img (click)="toggleShow($event, category)" src="https://img.icons8.com/external-tanah-basah-basic-outline-tanah-basah/24/000000/external-chevron-arrows-tanah-basah-basic-outline-tanah-basah-4.png" style="transform: rotate(180deg);"/>
                     </div>
